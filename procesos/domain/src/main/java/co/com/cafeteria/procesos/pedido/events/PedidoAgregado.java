@@ -11,7 +11,7 @@ public class PedidoAgregado extends DomainEvent {
     private final Fecha fecha;
     private final Local local;
 
-    public PedidoAgregado(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local) {
+    public PedidoAgregado(Cliente cliente, Fecha fecha, Local local) {
         super("co.com.cafeteria.procesos.PedidoAgregado");
         this.cliente = cliente;
         this.fecha = fecha;

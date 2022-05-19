@@ -3,6 +3,7 @@ package co.com.cafeteria.procesos.pedido;
 import co.com.cafeteria.procesos.pedido.entity.Cliente;
 import co.com.cafeteria.procesos.pedido.entity.Local;
 import co.com.cafeteria.procesos.pedido.entity.Producto;
+import co.com.cafeteria.procesos.pedido.events.PedidoAgregado;
 import co.com.cafeteria.procesos.pedido.values.Fecha;
 import co.com.cafeteria.procesos.pedido.values.PedidoId;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -15,7 +16,11 @@ public class Pedido extends AggregateEvent<PedidoId> {
     protected Cliente cliente;
     protected List<Producto> producto;
 
-
+    public Pedido(PedidoId id, Local local, Fecha fecha, Cliente cliente) {
+        super(id);
+        appendChange(new PedidoAgregado(cliente,fecha,local));
+        subscribe(new PedidoEventChange(this));
+    }
 
     public Local Local() {
         return local;

@@ -3,6 +3,7 @@ package co.com.cafeteria.procesos.empleado;
 import co.com.cafeteria.procesos.empleado.entity.Contrato;
 import co.com.cafeteria.procesos.empleado.entity.Rol;
 import co.com.cafeteria.procesos.empleado.entity.Uniforme;
+import co.com.cafeteria.procesos.empleado.events.EmpleadoAgregado;
 import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import generic.Nombre;
@@ -15,10 +16,8 @@ public class Empleado extends AggregateEvent<EmpleadoId> {
 
     public Empleado(EmpleadoId id, Contrato contrato, Nombre nombre, Rol rol, Uniforme uniforme) {
         super(id);
-        this.contrato = contrato;
-        this.nombre = nombre;
-        this.rol = rol;
-        this.uniforme = uniforme;
+        appendChange(new EmpleadoAgregado(nombre,contrato,rol,uniforme));
+        subscribe(new EmpleadoEventChange(this));
     }
 
     public Empleado(EmpleadoId empleadoId) {
