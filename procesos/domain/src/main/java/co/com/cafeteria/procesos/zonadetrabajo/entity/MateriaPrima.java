@@ -29,6 +29,5 @@ public class MateriaPrima extends Entity<MateriaPrimaId> {
 
     public void asignarFechaCaducidad(LocalDate diaCaducidad){
         this.fechaDeCaducidad = new FechaDeCaducidad(diaCaducidad);
-
     }
 }
