@@ -1,4 +1,4 @@
-package co.com.cafeteria.procesos.pedido.entity;
+package co.com.cafeteria.procesos.pedido.values;
 
 import co.com.sofka.domain.generic.Identity;
 
