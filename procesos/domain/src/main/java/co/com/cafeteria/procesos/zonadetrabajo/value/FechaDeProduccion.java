@@ -1,19 +1,19 @@
-package co.com.cafeteria.procesos.pedido.values;
+package co.com.cafeteria.procesos.zonadetrabajo.value;
 
+import co.com.cafeteria.procesos.pedido.values.Fecha;
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Fecha implements ValueObject<Fecha.Pros> {
-
+public class FechaDeProduccion implements ValueObject<Fecha.Pros> {
 
     private final LocalDateTime hora;
     private final LocalDate dia;
 
 
-    public Fecha(LocalDateTime hora, LocalDate dia) {
+    public FechaDeProduccion(LocalDateTime hora, LocalDate dia) {
         this.hora = Objects.requireNonNull(hora);
         this.dia = Objects.requireNonNull(dia);
     }
@@ -21,8 +21,8 @@ public class Fecha implements ValueObject<Fecha.Pros> {
 
 
     @Override
-    public Pros value() {
-        return new Pros() {
+    public Fecha.Pros value() {
+        return new Fecha.Pros() {
             @Override
             public LocalDateTime hora() {
                 return hora;
