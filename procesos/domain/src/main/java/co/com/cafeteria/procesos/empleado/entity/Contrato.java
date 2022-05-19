@@ -2,9 +2,9 @@ package co.com.cafeteria.procesos.empleado.entity;
 
 import co.com.cafeteria.procesos.values.ContratoId;
 import co.com.cafeteria.procesos.values.TipoDeContrato;
-import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.Entity;
 
-public class Contrato extends AggregateEvent<ContratoId> {
+public class Contrato extends Entity<ContratoId> {
     protected TipoDeContrato tipoDeContrato;
 
     public Contrato(ContratoId id, TipoDeContrato tipoDeContrato) {
