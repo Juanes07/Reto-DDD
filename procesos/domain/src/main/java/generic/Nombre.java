@@ -1,4 +1,4 @@
-package co.com.cafeteria.procesos.empleado;
+package generic;
 
 import co.com.sofka.domain.generic.ValueObject;
 

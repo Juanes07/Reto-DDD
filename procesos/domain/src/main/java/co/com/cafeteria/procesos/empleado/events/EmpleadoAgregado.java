@@ -1,6 +1,6 @@
 package co.com.cafeteria.procesos.empleado.events;
 
-import co.com.cafeteria.procesos.empleado.Nombre;
+import generic.Nombre;
 import co.com.cafeteria.procesos.empleado.entity.Contrato;
 import co.com.cafeteria.procesos.empleado.entity.Rol;
 import co.com.cafeteria.procesos.empleado.entity.Uniforme;

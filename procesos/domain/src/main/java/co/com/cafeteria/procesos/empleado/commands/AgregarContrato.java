@@ -1,7 +1,7 @@
 package co.com.cafeteria.procesos.empleado.commands;
 
-import co.com.cafeteria.procesos.values.EmpleadoId;
-import co.com.cafeteria.procesos.values.TipoDeContrato;
+import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
+import co.com.cafeteria.procesos.empleado.values.TipoDeContrato;
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarContrato extends Command {

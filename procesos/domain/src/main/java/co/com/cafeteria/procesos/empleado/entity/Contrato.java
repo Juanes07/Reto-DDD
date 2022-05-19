@@ -1,7 +1,7 @@
 package co.com.cafeteria.procesos.empleado.entity;
 
-import co.com.cafeteria.procesos.values.ContratoId;
-import co.com.cafeteria.procesos.values.TipoDeContrato;
+import co.com.cafeteria.procesos.empleado.values.ContratoId;
+import co.com.cafeteria.procesos.empleado.values.TipoDeContrato;
 import co.com.sofka.domain.generic.Entity;
 
 public class Contrato extends Entity<ContratoId> {

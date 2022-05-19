@@ -1,7 +1,7 @@
 package co.com.cafeteria.procesos.empleado.entity;
 
-import co.com.cafeteria.procesos.values.NombreRol;
-import co.com.cafeteria.procesos.values.RolId;
+import co.com.cafeteria.procesos.empleado.values.NombreRol;
+import co.com.cafeteria.procesos.empleado.values.RolId;
 import co.com.sofka.domain.generic.Entity;
 
 public class Rol extends Entity<RolId> {

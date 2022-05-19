@@ -1,9 +1,9 @@
 package co.com.cafeteria.procesos.empleado.commands;
 
-import co.com.cafeteria.procesos.empleado.Nombre;
+import generic.Nombre;
 import co.com.cafeteria.procesos.empleado.entity.Contrato;
 import co.com.cafeteria.procesos.empleado.entity.Rol;
-import co.com.cafeteria.procesos.values.EmpleadoId;
+import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarRolEmpleado extends Command {
