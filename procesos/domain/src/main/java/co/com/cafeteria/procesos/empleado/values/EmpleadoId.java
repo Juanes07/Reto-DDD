@@ -6,4 +6,8 @@ public class EmpleadoId extends Identity {
     public EmpleadoId(String id) {
         super(id);
     }
+
+    public static EmpleadoId of(String id) {
+        return new EmpleadoId(id);
+    }
 }

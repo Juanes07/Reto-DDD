@@ -15,4 +15,5 @@ public class Uniforme extends Entity<UniformeId> {
     public void agregarUniforme(String descripcion){
         this.descripcion = new Descripcion(descripcion);
     }
+
 }

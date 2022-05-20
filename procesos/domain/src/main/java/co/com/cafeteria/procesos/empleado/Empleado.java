@@ -3,41 +3,44 @@ package co.com.cafeteria.procesos.empleado;
 import co.com.cafeteria.procesos.empleado.entity.Contrato;
 import co.com.cafeteria.procesos.empleado.entity.Rol;
 import co.com.cafeteria.procesos.empleado.entity.Uniforme;
-import co.com.cafeteria.procesos.empleado.events.EmpleadoAgregado;
-import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
+import co.com.cafeteria.procesos.empleado.events.UniformeEmpleadoAgregado;
+import co.com.cafeteria.procesos.empleado.values.*;
+import co.com.cafeteria.procesos.zonadetrabajo.events.EmpleadoAgregado;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import generic.Nombre;
 
+import java.util.List;
+
 public class Empleado extends AggregateEvent<EmpleadoId> {
+
     protected Contrato contrato;
     protected Nombre nombre;
     protected Rol rol;
     protected Uniforme uniforme;
 
-    public Empleado(EmpleadoId id, Contrato contrato, Nombre nombre, Rol rol, Uniforme uniforme) {
+
+    public Empleado(EmpleadoId id, Contrato Contrato, Nombre nombre, Rol rol, Uniforme uniforme) {
         super(id);
-        appendChange(new EmpleadoAgregado(nombre,contrato,rol,uniforme));
-        subscribe(new EmpleadoEventChange(this));
+       appendChange(new EmpleadoAgregado(Contrato,nombre,rol,uniforme)).apply();
+       subscribe(new EmpleadoEventChange(this));
     }
 
-    public Empleado(EmpleadoId empleadoId) {
+    private Empleado(EmpleadoId empleadoId) {
         super(empleadoId);
         subscribe(new EmpleadoEventChange(this));
     }
 
-    public Contrato Contrato() {
-        return contrato;
+    public static Empleado from(EmpleadoId empleadoId, List<DomainEvent> events){
+        var empleado = new Empleado(empleadoId);
+        events.forEach(empleado::applyEvent);
+        return empleado;
     }
 
-    public Nombre Nombre() {
-        return nombre;
+    public  void agregarUniforme(Uniforme uniforme){
+        var empleadoId = new EmpleadoId("da");
+        appendChange(new UniformeEmpleadoAgregado(uniforme, empleadoId)).apply();
     }
 
-    public Rol Rol() {
-        return rol;
-    }
 
-    public Uniforme Uniforme() {
-        return uniforme;
-    }
 }

@@ -8,7 +8,7 @@ public class InstrumentoEliminado extends DomainEvent {
     private final InstrumentoId instrumentoId;
 
     public InstrumentoEliminado(InstrumentoId instrumentoId) {
-        super("co.com.cafeteria.procesos.EmpleadoAgregado");
+        super("co.com.cafeteria.procesos.ContratoAgregado");
         this.instrumentoId = instrumentoId;
     }
 

@@ -6,4 +6,7 @@ public class UniformeId extends Identity {
     public UniformeId(String id) {
         super(id);
     }
+    public static UniformeId of(String id) {
+        return new UniformeId(id);
+    }
 }
