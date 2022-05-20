@@ -58,6 +58,7 @@ class AgregarUniformeEmpleadoUseCaseTest {
         var event = (UniformeEmpleadoAgregado) events.get(0);
         Assertions.assertEquals("t",event.aggregateRootId());
         Assertions.assertEquals(uniforme,event.Uniforme());
+        Assertions.assertEquals("t",event.EmpleadoId().value());
     }
 
     private List<DomainEvent> history() {

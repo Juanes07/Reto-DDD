@@ -58,6 +58,10 @@ class AgregarRolEmpleadoUseCaseTest {
         var event = (RolEmpleadoAgregado) events.get(0);
         Assertions.assertEquals("t",event.aggregateRootId());
         Assertions.assertEquals(contrato,event.Contrato());
+        Assertions.assertEquals(rol,event.Rol());
+        Assertions.assertEquals("t",event.EmpleadoId().value());
+        Assertions.assertEquals("hola",event.Nombre().value());
+
 
 
 

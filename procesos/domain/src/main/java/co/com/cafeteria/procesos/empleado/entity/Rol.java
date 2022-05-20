@@ -12,7 +12,7 @@ public class Rol extends Entity<RolId> {
         this.nombreRol = nombreRol;
     }
 
-    public void agregarRol(String nombreRol){
-        this.nombreRol = new NombreRol(nombreRol);
-    }
+//    public void agregarRol(String nombreRol){
+//        this.nombreRol = new NombreRol(nombreRol);
+//    }
 }

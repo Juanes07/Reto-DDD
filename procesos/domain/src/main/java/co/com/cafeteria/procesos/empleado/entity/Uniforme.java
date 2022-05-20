@@ -12,8 +12,8 @@ public class Uniforme extends Entity<UniformeId> {
         this.descripcion = descripcion;
     }
 
-    public void agregarUniforme(String descripcion){
-        this.descripcion = new Descripcion(descripcion);
-    }
+//    public void agregarUniforme(String descripcion){
+//        this.descripcion = new Descripcion(descripcion);
+//    }
 
 }

@@ -11,8 +11,4 @@ public class Contrato extends Entity<ContratoId> {
         super(id);
         this.tipoDeContrato = tipoDeContrato;
     }
-
-    public void crearTipoDeContrato(String tipoDeContrato, String horasDeTrabajo){
-        this.tipoDeContrato = new TipoDeContrato(tipoDeContrato, horasDeTrabajo);
-    }
 }

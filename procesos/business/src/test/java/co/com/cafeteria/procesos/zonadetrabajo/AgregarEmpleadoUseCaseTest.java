@@ -24,40 +24,41 @@ import static org.junit.jupiter.api.Assertions.*;
 class AgregarEmpleadoUseCaseTest {
 
     @InjectMocks
-    private AgregarEmpleadoUseCase  useCase;
+    private AgregarEmpleadoUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void agregarEmpleadoHappyPass(){
+    void agregarEmpleadoHappyPass() {
+
+        //arrange
         EmpleadoId empleadoId = EmpleadoId.of("da");
         ContratoId contratoId = ContratoId.of("q");
-        TipoDeContrato tipoDeContrato = new TipoDeContrato("horas","10");
-        Contrato contrato = new Contrato(contratoId,tipoDeContrato);
+        TipoDeContrato tipoDeContrato = new TipoDeContrato("horas", "10");
+        Contrato contrato = new Contrato(contratoId, tipoDeContrato);
         Nombre nombre = new Nombre("hola");
         RolId rolId = new RolId("dada");
         NombreRol nombreRol = new NombreRol("chef");
-        Rol rol = new Rol(rolId,nombreRol);
+        Rol rol = new Rol(rolId, nombreRol);
         UniformeId uniformeId = UniformeId.of("valor");
         Descripcion descripcion = new Descripcion("des");
-        Uniforme uniforme = new Uniforme(uniformeId,descripcion);
+        Uniforme uniforme = new Uniforme(uniformeId, descripcion);
+        var command = new AgregarEmpleado(empleadoId, contrato, nombre, rol, uniforme);
 
-        var command = new AgregarEmpleado(empleadoId,contrato,nombre,rol,uniforme);
-
-
-
+        //act
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (EmpleadoAgregado)events.get(0);
-        Assertions.assertEquals("da",event.aggregateRootId());
-        Assertions.assertEquals(contrato,event.Contrato());
-        Assertions.assertEquals("hola",event.Nombre().value());
-        Assertions.assertEquals(rol,event.Rol());
-        Assertions.assertEquals(uniforme,event.Uniforme());
+        //assert
+        var event = (EmpleadoAgregado) events.get(0);
+        Assertions.assertEquals("da", event.aggregateRootId());
+        Assertions.assertEquals(contrato, event.Contrato());
+        Assertions.assertEquals("hola", event.Nombre().value());
+        Assertions.assertEquals(rol, event.Rol());
+        Assertions.assertEquals(uniforme, event.Uniforme());
 
     }
 

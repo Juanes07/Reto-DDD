@@ -3,24 +3,32 @@ package co.com.cafeteria.procesos.pedido;
 import co.com.cafeteria.procesos.pedido.entity.Cliente;
 import co.com.cafeteria.procesos.pedido.entity.Local;
 import co.com.cafeteria.procesos.pedido.entity.Producto;
-import co.com.cafeteria.procesos.pedido.events.PedidoAgregado;
-import co.com.cafeteria.procesos.pedido.values.Fecha;
-import co.com.cafeteria.procesos.pedido.values.PedidoId;
+import co.com.cafeteria.procesos.pedido.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
-import java.util.List;
+import java.util.Set;
 
 public class Pedido extends AggregateEvent<PedidoId> {
     protected Local local;
     protected Fecha fecha;
     protected Cliente cliente;
-    protected List<Producto> producto;
+    protected Set<Producto> producto;
+    protected Precio precio;
+    protected Cantidad cantidad;
 
-    public Pedido(PedidoId id, Local local, Fecha fecha, Cliente cliente) {
+    public Pedido(PedidoId id, Local local, Fecha fecha, Cliente cliente, Set<Producto> producto) {
         super(id);
-        appendChange(new PedidoAgregado(cliente,fecha,local));
-        subscribe(new PedidoEventChange(this));
+        this.local = local;
+        this.fecha = fecha;
+        this.cliente = cliente;
+        this.producto = producto;
     }
+
+    public void asignarPrecio(ProductoId productoId, Precio precio, Cantidad cantidad){
+        appendChange(new ProductoAgregado(productoId,precio,cantidad)).apply();
+    }
+
+
 
     public Local Local() {
         return local;
@@ -34,7 +42,15 @@ public class Pedido extends AggregateEvent<PedidoId> {
         return cliente;
     }
 
-    public List<Producto> Producto() {
+    public Set<Producto> Producto() {
         return producto;
+    }
+
+    public Precio Precio() {
+        return precio;
+    }
+
+    public Cantidad Cantidad() {
+        return cantidad;
     }
 }

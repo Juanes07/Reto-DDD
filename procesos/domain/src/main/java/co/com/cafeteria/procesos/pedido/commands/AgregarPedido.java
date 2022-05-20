@@ -2,8 +2,8 @@ package co.com.cafeteria.procesos.pedido.commands;
 
 import co.com.cafeteria.procesos.pedido.entity.Cliente;
 import co.com.cafeteria.procesos.pedido.entity.Local;
-import co.com.cafeteria.procesos.pedido.values.Fecha;
-import co.com.cafeteria.procesos.pedido.values.PedidoId;
+import co.com.cafeteria.procesos.pedido.entity.Producto;
+import co.com.cafeteria.procesos.pedido.values.*;
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarPedido extends Command {
@@ -11,12 +11,18 @@ public class AgregarPedido extends Command {
     private final Cliente cliente;
     private final Fecha fecha;
     private final Local local;
+    private final Producto producto;
+    private final Precio precio;
+    private final Cantidad cantidad;
 
-    public AgregarPedido(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local) {
+    public AgregarPedido(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto, Precio precio, Cantidad cantidad) {
         this.pedidoId = pedidoId;
         this.cliente = cliente;
         this.fecha = fecha;
         this.local = local;
+        this.producto = producto;
+        this.precio = precio;
+        this.cantidad = cantidad;
     }
 
     public PedidoId PedidoId() {
@@ -33,5 +39,17 @@ public class AgregarPedido extends Command {
 
     public Local Local() {
         return local;
+    }
+
+    public Producto Producto() {
+        return producto;
+    }
+
+    public Precio getPrecio() {
+        return precio;
+    }
+
+    public Cantidad getCantidad() {
+        return cantidad;
     }
 }
