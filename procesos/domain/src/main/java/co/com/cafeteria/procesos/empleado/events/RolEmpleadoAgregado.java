@@ -7,12 +7,14 @@ import co.com.sofka.domain.generic.DomainEvent;
 import generic.Nombre;
 
 public class RolEmpleadoAgregado extends DomainEvent {
+    private final EmpleadoId empleadoId;
     private final Contrato contrato;
     private final Nombre nombre;
     private final Rol rol;
 
-    public RolEmpleadoAgregado(Contrato contrato, Nombre nombre, Rol rol) {
+    public RolEmpleadoAgregado(EmpleadoId empleadoId, Contrato contrato, Nombre nombre, Rol rol) {
         super("co.com.cafeteria.procesos.RolEmpleadoAgregado");
+        this.empleadoId = empleadoId;
         this.contrato = contrato;
         this.nombre = nombre;
         this.rol = rol;
@@ -28,5 +30,9 @@ public class RolEmpleadoAgregado extends DomainEvent {
 
     public Rol Rol() {
         return rol;
+    }
+
+    public EmpleadoId EmpleadoId() {
+        return empleadoId;
     }
 }
