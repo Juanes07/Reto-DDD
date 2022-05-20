@@ -8,10 +8,7 @@ public class Precio implements ValueObject<String> {
     private final String precio;
 
     public Precio(String precio) {
-        this.precio = Objects.requireNonNull(precio);
-        if (this.precio.isBlank()) {
-            throw new IllegalArgumentException("El precio del producto no puede estar vacio");
-        }
+        this.precio = precio;
     }
 
     @Override

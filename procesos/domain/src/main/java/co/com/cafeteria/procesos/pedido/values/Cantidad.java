@@ -8,10 +8,7 @@ public class Cantidad implements ValueObject<String> {
     private final String cantidad;
 
     public Cantidad(String cantidad) {
-        this.cantidad = Objects.requireNonNull(cantidad);
-        if(this.cantidad.isBlank()){
-            throw new IllegalArgumentException("La cantidad del producto no puede estar vacia");
-        }
+        this.cantidad = cantidad;
     }
 
     @Override

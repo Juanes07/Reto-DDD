@@ -11,8 +11,5 @@ public class Lavado extends Entity<LavadoId> {
         super(id);
         this.ubicacion = ubicacion;
     }
-
-    public void asignarUbicacion(String ubicacion){
-        this.ubicacion = new Ubicacion(ubicacion);
-    }
+    
 }

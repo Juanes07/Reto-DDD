@@ -8,10 +8,7 @@ public class Ubicacion implements ValueObject<String> {
     private final String ubicacion;
 
     public Ubicacion(String ubicacion) {
-        this.ubicacion = Objects.requireNonNull(ubicacion);
-        if(this.ubicacion.isBlank()){
-            throw new IllegalArgumentException("La ubicacion del local no puede estar vacia");
-        }
+        this.ubicacion = ubicacion;
     }
 
     @Override
