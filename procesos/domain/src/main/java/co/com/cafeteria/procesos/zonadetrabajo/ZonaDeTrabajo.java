@@ -7,6 +7,7 @@ import co.com.cafeteria.procesos.zonadetrabajo.entity.Instrumento;
 import co.com.cafeteria.procesos.zonadetrabajo.entity.InstrumentoId;
 import co.com.cafeteria.procesos.zonadetrabajo.entity.MateriaPrima;
 import co.com.cafeteria.procesos.zonadetrabajo.events.InstrumentoAgregado;
+import co.com.cafeteria.procesos.zonadetrabajo.events.InstrumentoEliminado;
 import co.com.cafeteria.procesos.zonadetrabajo.events.ZonaDeTrabajoAgregada;
 import co.com.cafeteria.procesos.zonadetrabajo.value.ZonaDeTrabajoId;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -41,6 +42,10 @@ public class ZonaDeTrabajo extends AggregateEvent<ZonaDeTrabajoId> {
 
     public void agregarInstrumento(ZonaDeTrabajoId zonaDeTrabajoId , InstrumentoId instrumentoId, Nombre nombre, Categoria categoria){
         appendChange(new InstrumentoAgregado(zonaDeTrabajoId, instrumentoId, nombre,categoria));
+    }
+
+    public void eliminarInstrumento(ZonaDeTrabajoId zonaDeTrabajoId, InstrumentoId instrumentoId){
+        appendChange(new InstrumentoEliminado(zonaDeTrabajoId,instrumentoId));
     }
 
 
