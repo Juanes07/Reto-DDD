@@ -24,12 +24,6 @@ public class Pedido extends AggregateEvent<PedidoId> {
         this.producto = producto;
     }
 
-    public void asignarPrecio(ProductoId productoId, Precio precio, Cantidad cantidad){
-        appendChange(new ProductoAgregado(productoId,precio,cantidad)).apply();
-    }
-
-
-
     public Local Local() {
         return local;
     }
