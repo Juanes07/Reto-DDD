@@ -3,6 +3,7 @@ package co.com.cafeteria.procesos.empleado;
 import co.com.cafeteria.procesos.empleado.entity.Contrato;
 import co.com.cafeteria.procesos.empleado.entity.Rol;
 import co.com.cafeteria.procesos.empleado.entity.Uniforme;
+import co.com.cafeteria.procesos.empleado.events.ContratoAgregado;
 import co.com.cafeteria.procesos.empleado.events.RolEmpleadoAgregado;
 import co.com.cafeteria.procesos.empleado.events.UniformeEmpleadoAgregado;
 import co.com.cafeteria.procesos.empleado.values.*;
@@ -38,16 +39,16 @@ public class Empleado extends AggregateEvent<EmpleadoId> {
         return empleado;
     }
 
-    public  void agregarUniforme(Uniforme uniforme){
-        var empleadoId = new EmpleadoId("da");
+    public  void agregarUniforme(EmpleadoId empleadoId, Uniforme uniforme){
         appendChange(new UniformeEmpleadoAgregado(uniforme, empleadoId)).apply();
     }
 
-    public void agregarRol(Rol rol){
-        var empleadoId = new EmpleadoId("da");
-        var nombre = new Nombre("Juan");
-        var contrato = new Contrato(new ContratoId("da"),new TipoDeContrato("horas","10"));
+    public void agregarRol(EmpleadoId empleadoId, Nombre nombre, Contrato contrato ,Rol rol){
         appendChange(new RolEmpleadoAgregado(empleadoId, contrato,nombre,rol)).apply();
+    }
+
+    public void agregarContrato(ContratoId contratoId, TipoDeContrato tipoDeContrato){
+        appendChange(new ContratoAgregado(contratoId,tipoDeContrato)).apply();
     }
 
 

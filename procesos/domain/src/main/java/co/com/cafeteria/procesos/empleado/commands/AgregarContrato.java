@@ -1,24 +1,22 @@
 package co.com.cafeteria.procesos.empleado.commands;
 
+import co.com.cafeteria.procesos.empleado.entity.Contrato;
 import co.com.cafeteria.procesos.empleado.entity.Rol;
 import co.com.cafeteria.procesos.empleado.entity.Uniforme;
+import co.com.cafeteria.procesos.empleado.values.ContratoId;
 import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
 import co.com.cafeteria.procesos.empleado.values.TipoDeContrato;
 import co.com.sofka.domain.generic.Command;
 import generic.Nombre;
 
 public class AgregarContrato extends Command {
-    protected EmpleadoId empleadoId;
-    protected Nombre nombre;
-    protected Rol rol;
-    protected Uniforme uniforme;
-    protected TipoDeContrato tipoDeContrato;
+    private final EmpleadoId empleadoId;
+    private final ContratoId contratoId;
+    private final TipoDeContrato tipoDeContrato;
 
-    public AgregarContrato(EmpleadoId id, Nombre nombre, Rol rol, Uniforme uniforme, TipoDeContrato tipoDeContrato) {
+    public AgregarContrato(EmpleadoId id, ContratoId contratoId, TipoDeContrato tipoDeContrato) {
         this.empleadoId = id;
-        this.nombre = nombre;
-        this.rol = rol;
-        this.uniforme = uniforme;
+        this.contratoId = contratoId;
         this.tipoDeContrato = tipoDeContrato;
     }
 
@@ -26,16 +24,8 @@ public class AgregarContrato extends Command {
         return empleadoId;
     }
 
-    public Nombre Nombre() {
-        return nombre;
-    }
-
-    public Rol Rol() {
-        return rol;
-    }
-
-    public Uniforme Uniforme() {
-        return uniforme;
+    public ContratoId ContratoId() {
+        return contratoId;
     }
 
     public TipoDeContrato TipoDeContrato() {

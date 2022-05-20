@@ -13,7 +13,7 @@ public class AgregarUniformeEmpleadoUseCase extends UseCase<RequestCommand<Agreg
         var empleado = Empleado.from(
                 command.EmpleadoId(),repository().getEventsBy(command.EmpleadoId().value())
         );
-        empleado.agregarUniforme(command.uniforme());
+        empleado.agregarUniforme(command.EmpleadoId() , command.uniforme());
 
         emit().onResponse(new ResponseEvents(empleado.getUncommittedChanges()));
     }

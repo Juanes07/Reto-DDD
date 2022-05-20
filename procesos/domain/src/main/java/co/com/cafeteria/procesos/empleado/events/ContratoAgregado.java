@@ -9,36 +9,23 @@ import co.com.cafeteria.procesos.empleado.entity.Uniforme;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class ContratoAgregado extends DomainEvent {
-    private final Contrato contrato;
-    private final Nombre nombre;
-    private final Rol rol;
-    private final Uniforme uniforme;
+
+    private final ContratoId contratoId;
+    private final TipoDeContrato tipoDeContrato;
 
 
-    public ContratoAgregado(Contrato contrato, Nombre nombre, Rol rol, Uniforme uniforme) {
+    public ContratoAgregado(ContratoId contratoId, TipoDeContrato tipoDeContrato) {
         super("co.com.cafeteria.procesos.ContratoAgregado");
-        this.contrato = contrato;
-        this.nombre = nombre;
-        this.rol = rol;
-        this.uniforme = uniforme;
+        this.contratoId = contratoId;
+        this.tipoDeContrato = tipoDeContrato;
     }
 
 
-
-    public Contrato contrato() {
-        return contrato;
+    public ContratoId getContratoId() {
+        return contratoId;
     }
 
-    public Nombre Nombre() {
-        return nombre;
+    public TipoDeContrato getTipoDeContrato() {
+        return tipoDeContrato;
     }
-
-    public Rol Rol() {
-        return rol;
-    }
-
-    public Uniforme Uniforme() {
-        return uniforme;
-    }
-
 }

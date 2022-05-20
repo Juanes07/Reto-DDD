@@ -16,7 +16,7 @@ public class AgregarRolEmpleadoUseCase extends UseCase<RequestCommand<AgregarRol
         var empleado = Empleado.from(
                 command.EmpleadoId(),repository().getEventsBy(command.EmpleadoId().value())
         );
-        empleado.agregarRol(command.Rol());
+        empleado.agregarRol(command.EmpleadoId(), command.Nombre(), command.Contrato() ,command.Rol());
 
         emit().onResponse(new ResponseEvents(empleado.getUncommittedChanges()));
     }
