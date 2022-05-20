@@ -21,13 +21,4 @@ public class MateriaPrima extends Entity<MateriaPrimaId> {
         this.fechaDeProduccion = fechaDeProduccion;
         this.fechaDeCaducidad = fechaDeCaducidad;
     }
-
-    public void asignarFechaDeProduccion(LocalDateTime horaProduccion, LocalDate diaProduccion){
-        this.fechaDeProduccion = new FechaDeProduccion(horaProduccion, diaProduccion);
-
-    }
-
-    public void asignarFechaCaducidad(LocalDate diaCaducidad){
-        this.fechaDeCaducidad = new FechaDeCaducidad(diaCaducidad);
-    }
 }

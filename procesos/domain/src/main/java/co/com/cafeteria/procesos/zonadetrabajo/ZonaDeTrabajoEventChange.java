@@ -11,7 +11,7 @@ public class ZonaDeTrabajoEventChange extends EventChange {
             zonaDeTrabajo.empleadoId = event.EmpleadoId();
             zonaDeTrabajo.instrumento = event.Instrumento();
             zonaDeTrabajo.pedidoId = event.PedidoId();
-            zonaDeTrabajo.materiaPrima = new ArrayList<>();
+            zonaDeTrabajo.materiaPrima = event.getMateriaPrima();
         });
     }
 }

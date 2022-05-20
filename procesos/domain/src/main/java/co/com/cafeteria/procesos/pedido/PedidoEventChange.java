@@ -9,10 +9,10 @@ public class PedidoEventChange extends EventChange {
 
     public PedidoEventChange(Pedido pedido){
         apply((PedidoCreado event)->{
-            pedido.cliente = event.Cliente();
-            pedido.fecha = event.Fecha();
-            pedido.local = event.Local();
-            pedido.producto = new HashSet<>();
+            pedido.cliente = event.getCliente();
+            pedido.fecha = event.getFecha();
+            pedido.local = event.getLocal();
+            pedido.producto = event.getProducto();
         });
     }
 }

@@ -15,12 +15,4 @@ public class Producto extends Entity<ProductoId> {
         this.cantidad = cantidad;
     }
 
-    public void asignarPrecio(String precio){
-        this.precio = new Precio(precio);
-    }
-
-    public void asignarCantidad(String cantidad){
-        this.cantidad = new Cantidad(cantidad);
-    }
-
 }

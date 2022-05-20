@@ -12,17 +12,13 @@ public class CrearPedido extends Command {
     private final Fecha fecha;
     private final Local local;
     private final Producto producto;
-    private final Precio precio;
-    private final Cantidad cantidad;
 
-    public CrearPedido(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto, Precio precio, Cantidad cantidad) {
+    public CrearPedido(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto) {
         this.pedidoId = pedidoId;
         this.cliente = cliente;
         this.fecha = fecha;
         this.local = local;
         this.producto = producto;
-        this.precio = precio;
-        this.cantidad = cantidad;
     }
 
     public PedidoId PedidoId() {
@@ -45,11 +41,4 @@ public class CrearPedido extends Command {
         return producto;
     }
 
-    public Precio getPrecio() {
-        return precio;
-    }
-
-    public Cantidad getCantidad() {
-        return cantidad;
-    }
 }

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class FechaDeProduccion implements ValueObject<Fecha.Pros> {
+public class FechaDeProduccion implements ValueObject<FechaDeProduccion.Pros> {
 
     private final LocalDateTime hora;
     private final LocalDate dia;
@@ -19,10 +19,9 @@ public class FechaDeProduccion implements ValueObject<Fecha.Pros> {
     }
 
 
-
     @Override
-    public Fecha.Pros value() {
-        return new Fecha.Pros() {
+    public FechaDeProduccion.Pros value() {
+        return new FechaDeProduccion.Pros() {
             @Override
             public LocalDateTime hora() {
                 return hora;

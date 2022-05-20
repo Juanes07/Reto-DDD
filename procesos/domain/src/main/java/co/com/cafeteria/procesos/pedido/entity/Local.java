@@ -12,7 +12,4 @@ public class Local extends Entity<LocalId> {
         this.ubicacion = ubicacion;
     }
 
-    public void agregarLocal(String ubicacion){
-        this.ubicacion = new Ubicacion(ubicacion);
-    }
 }

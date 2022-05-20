@@ -14,8 +14,4 @@ public class Cliente extends Entity<ClienteId> {
         this.nombre = nombre;
     }
 
-    public void crearCliente(String nombre, String documento){
-        this.nombre = new Nombre(nombre);
-        this.documento = new Documento(documento);
-    }
 }

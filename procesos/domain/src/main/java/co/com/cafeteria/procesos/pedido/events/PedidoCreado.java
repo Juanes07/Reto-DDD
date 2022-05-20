@@ -15,18 +15,15 @@ public class PedidoCreado extends DomainEvent {
     private final Fecha fecha;
     private final Local local;
     private final Producto producto;
-    private final Precio precio;
-    private final Cantidad cantidad;
 
-    public PedidoCreado(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto, Precio precio, Cantidad cantidad) {
+    public PedidoCreado(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto) {
         super("co.com.cafeteria.procesos.PedidoCreado");
         this.pedidoId = pedidoId;
         this.cliente = cliente;
         this.fecha = fecha;
         this.local = local;
         this.producto = producto;
-        this.precio = precio;
-        this.cantidad = cantidad;
+
     }
 
     public PedidoId getPedidoId() {
@@ -49,11 +46,4 @@ public class PedidoCreado extends DomainEvent {
         return producto;
     }
 
-    public Precio getPrecio() {
-        return precio;
-    }
-
-    public Cantidad getCantidad() {
-        return cantidad;
-    }
 }

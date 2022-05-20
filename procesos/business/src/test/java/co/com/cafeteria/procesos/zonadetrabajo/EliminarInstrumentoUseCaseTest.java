@@ -1,22 +1,16 @@
 package co.com.cafeteria.procesos.zonadetrabajo;
 
-import co.com.cafeteria.procesos.empleado.entity.Contrato;
-import co.com.cafeteria.procesos.empleado.entity.Rol;
-import co.com.cafeteria.procesos.empleado.entity.Uniforme;
 import co.com.cafeteria.procesos.empleado.values.*;
 import co.com.cafeteria.procesos.pedido.values.PedidoId;
+import co.com.cafeteria.procesos.pedido.values.Ubicacion;
 import co.com.cafeteria.procesos.zonadetrabajo.commands.EliminarInstrumento;
-import co.com.cafeteria.procesos.zonadetrabajo.entity.Categoria;
-import co.com.cafeteria.procesos.zonadetrabajo.entity.Instrumento;
-import co.com.cafeteria.procesos.zonadetrabajo.entity.InstrumentoId;
-import co.com.cafeteria.procesos.zonadetrabajo.events.EmpleadoAgregado;
+import co.com.cafeteria.procesos.zonadetrabajo.entity.*;
 import co.com.cafeteria.procesos.zonadetrabajo.events.InstrumentoEliminado;
 import co.com.cafeteria.procesos.zonadetrabajo.events.ZonaDeTrabajoAgregada;
-import co.com.cafeteria.procesos.zonadetrabajo.value.ZonaDeTrabajoId;
+import co.com.cafeteria.procesos.zonadetrabajo.value.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.generic.Command;
 import co.com.sofka.domain.generic.DomainEvent;
 import generic.Nombre;
 import org.junit.jupiter.api.Assertions;
@@ -26,9 +20,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -70,7 +65,14 @@ class EliminarInstrumentoUseCaseTest {
         Nombre nombre = new Nombre("cuchara");
         Categoria categoria = new Categoria("cocina");
         Instrumento instrumento = new Instrumento(instrumentoId,nombre,categoria);
-        var event = new ZonaDeTrabajoAgregada(empleadoId,pedidoId,instrumento);
+        MateriaPrima materiaPrima = new MateriaPrima(
+                new MateriaPrimaId("m1"),
+                new Nombre("tomate"),
+                new FechaDeProduccion(LocalDateTime.now(), LocalDate.now()),
+                new FechaDeCaducidad(LocalDate.now()));
+        ZonaDeTrabajoId zonaDeTrabajoId = ZonaDeTrabajoId.of("t1");
+        Lavado lavado = new Lavado(new LavadoId("l1"),new Ubicacion("cocina1"));
+        var event = new ZonaDeTrabajoAgregada(empleadoId,pedidoId,instrumento, materiaPrima, zonaDeTrabajoId, lavado);
         event.setAggregateRootId("xxx");
         return List.of(event);
     }

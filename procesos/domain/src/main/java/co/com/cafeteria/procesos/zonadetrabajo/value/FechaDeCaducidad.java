@@ -30,8 +30,6 @@ public class FechaDeCaducidad implements ValueObject<FechaDeCaducidad.Pros> {
 
 
     public interface Pros {
-
-
         LocalDate dia();
     }
 }
