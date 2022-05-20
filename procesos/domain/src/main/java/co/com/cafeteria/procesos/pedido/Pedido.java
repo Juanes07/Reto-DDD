@@ -24,6 +24,12 @@ public class Pedido extends AggregateEvent<PedidoId> {
         this.producto = producto;
     }
 
+
+    public void agregarPedido(Cliente cliente, Producto producto,Fecha fecha){
+
+
+    }
+
     public Local Local() {
         return local;
     }

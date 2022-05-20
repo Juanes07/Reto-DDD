@@ -6,7 +6,7 @@ import co.com.cafeteria.procesos.pedido.entity.Producto;
 import co.com.cafeteria.procesos.pedido.values.*;
 import co.com.sofka.domain.generic.Command;
 
-public class AgregarPedido extends Command {
+public class CrearPedido extends Command {
     private final PedidoId pedidoId;
     private final Cliente cliente;
     private final Fecha fecha;
@@ -15,7 +15,7 @@ public class AgregarPedido extends Command {
     private final Precio precio;
     private final Cantidad cantidad;
 
-    public AgregarPedido(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto, Precio precio, Cantidad cantidad) {
+    public CrearPedido(PedidoId pedidoId, Cliente cliente, Fecha fecha, Local local, Producto producto, Precio precio, Cantidad cantidad) {
         this.pedidoId = pedidoId;
         this.cliente = cliente;
         this.fecha = fecha;
