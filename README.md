@@ -1,6 +1,6 @@
 # Reto-DDD
 
-#Imagenes
+# Imagenes
 
 ![1](https://user-images.githubusercontent.com/96356792/169634561-65fec86a-b756-4698-b3a2-718420370d7d.png)
 
