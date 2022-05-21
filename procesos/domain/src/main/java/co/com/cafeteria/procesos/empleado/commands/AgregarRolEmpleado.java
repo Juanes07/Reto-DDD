@@ -6,6 +6,14 @@ import co.com.cafeteria.procesos.empleado.entity.Rol;
 import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
 import co.com.sofka.domain.generic.Command;
 
+/**
+ * Comando AgregarRolEmpleado
+ *
+ * @author Juan Esteban Velasquez
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 public class AgregarRolEmpleado extends Command {
     private final EmpleadoId empleadoId;
     private final Contrato contrato;

@@ -5,6 +5,14 @@ import co.com.cafeteria.procesos.pedido.values.Precio;
 import co.com.cafeteria.procesos.pedido.values.ProductoId;
 import co.com.sofka.domain.generic.Entity;
 
+/**
+ * Entidad Producto
+ *
+ * @author Juan Esteban Velasquez
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 public class Producto extends Entity<ProductoId> {
     protected Precio precio;
     protected Cantidad cantidad;

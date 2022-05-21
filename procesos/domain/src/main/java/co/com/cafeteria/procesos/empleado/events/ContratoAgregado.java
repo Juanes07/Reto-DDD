@@ -1,12 +1,17 @@
 package co.com.cafeteria.procesos.empleado.events;
 
-import co.com.cafeteria.procesos.empleado.entity.Contrato;
+
 import co.com.cafeteria.procesos.empleado.values.ContratoId;
 import co.com.cafeteria.procesos.empleado.values.TipoDeContrato;
-import generic.Nombre;
-import co.com.cafeteria.procesos.empleado.entity.Rol;
-import co.com.cafeteria.procesos.empleado.entity.Uniforme;
 import co.com.sofka.domain.generic.DomainEvent;
+
+/**
+ * Evento De Dominio ContratoAgregado
+ *
+ * @author Juan Esteban Velasquez
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 
 public class ContratoAgregado extends DomainEvent {
 

@@ -4,6 +4,15 @@ import co.com.cafeteria.procesos.empleado.values.Descripcion;
 import co.com.cafeteria.procesos.empleado.values.UniformeId;
 import co.com.sofka.domain.generic.Entity;
 
+
+/**
+ * Entidad Uniforme
+ *
+ * @author Juan Esteban Velasquez
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 public class Uniforme extends Entity<UniformeId> {
     protected Descripcion descripcion;
 
@@ -11,9 +20,5 @@ public class Uniforme extends Entity<UniformeId> {
         super(id);
         this.descripcion = descripcion;
     }
-
-//    public void agregarUniforme(String descripcion){
-//        this.descripcion = new Descripcion(descripcion);
-//    }
 
 }
