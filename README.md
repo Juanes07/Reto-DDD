@@ -1,5 +1,10 @@
 # Reto-DDD
 
+# Enlace a vista de diagrama
+
+https://drive.google.com/file/d/18DhsTr5T4U6gRzmDlgZq4QoF249RQDZi/view?usp=sharing
+
+
 # Imagenes
 
 ![1](https://user-images.githubusercontent.com/96356792/169634561-65fec86a-b756-4698-b3a2-718420370d7d.png)
