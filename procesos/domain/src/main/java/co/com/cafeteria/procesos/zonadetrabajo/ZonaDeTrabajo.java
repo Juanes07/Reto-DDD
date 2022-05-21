@@ -3,10 +3,7 @@ package co.com.cafeteria.procesos.zonadetrabajo;
 import co.com.cafeteria.procesos.empleado.values.EmpleadoId;
 import co.com.cafeteria.procesos.pedido.values.PedidoId;
 import co.com.cafeteria.procesos.zonadetrabajo.entity.*;
-import co.com.cafeteria.procesos.zonadetrabajo.events.EmpleadoEliminado;
-import co.com.cafeteria.procesos.zonadetrabajo.events.InstrumentoAgregado;
-import co.com.cafeteria.procesos.zonadetrabajo.events.InstrumentoEliminado;
-import co.com.cafeteria.procesos.zonadetrabajo.events.ZonaDeTrabajoAgregada;
+import co.com.cafeteria.procesos.zonadetrabajo.events.*;
 import co.com.cafeteria.procesos.zonadetrabajo.value.ZonaDeTrabajoId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -50,5 +47,9 @@ public class ZonaDeTrabajo extends AggregateEvent<ZonaDeTrabajoId> {
 
     public void eliminarEmpleado(ZonaDeTrabajoId zonaDeTrabajoId, EmpleadoId empleadoId){
         appendChange(new EmpleadoEliminado(zonaDeTrabajoId,empleadoId)).apply();
+    }
+
+    public void actualizarZonaDeTrabajo(ZonaDeTrabajoId zonaDeTrabajoId){
+        appendChange(new ZonaDeTrabajoActualizada(zonaDeTrabajoId)).apply();
     }
 }
