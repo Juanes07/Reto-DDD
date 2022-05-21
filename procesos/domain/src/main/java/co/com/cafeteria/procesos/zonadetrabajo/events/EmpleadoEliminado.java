@@ -15,7 +15,7 @@ public class EmpleadoEliminado extends DomainEvent {
     }
 
     public EmpleadoId EmpleadoId() {
-            return empleadoId;
+        return empleadoId;
     }
 
     public ZonaDeTrabajoId getZonaDeTrabajoId() {

@@ -19,7 +19,6 @@ public class Fecha implements ValueObject<Fecha.Pros> {
     }
 
 
-
     @Override
     public Pros value() {
         return new Pros() {

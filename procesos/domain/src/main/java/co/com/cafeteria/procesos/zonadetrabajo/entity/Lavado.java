@@ -11,5 +11,5 @@ public class Lavado extends Entity<LavadoId> {
         super(id);
         this.ubicacion = ubicacion;
     }
-    
+
 }

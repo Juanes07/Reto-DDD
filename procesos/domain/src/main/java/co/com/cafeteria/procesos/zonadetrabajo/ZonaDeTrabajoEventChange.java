@@ -6,8 +6,8 @@ import co.com.sofka.domain.generic.EventChange;
 import java.util.ArrayList;
 
 public class ZonaDeTrabajoEventChange extends EventChange {
-    public ZonaDeTrabajoEventChange(ZonaDeTrabajo zonaDeTrabajo){
-        apply((ZonaDeTrabajoAgregada event)->{
+    public ZonaDeTrabajoEventChange(ZonaDeTrabajo zonaDeTrabajo) {
+        apply((ZonaDeTrabajoAgregada event) -> {
             zonaDeTrabajo.empleadoId = event.EmpleadoId();
             zonaDeTrabajo.instrumento = event.Instrumento();
             zonaDeTrabajo.pedidoId = event.PedidoId();

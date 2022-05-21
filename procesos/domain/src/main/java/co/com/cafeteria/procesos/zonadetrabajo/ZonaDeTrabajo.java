@@ -20,36 +20,35 @@ public class ZonaDeTrabajo extends AggregateEvent<ZonaDeTrabajoId> {
 
     public ZonaDeTrabajo(ZonaDeTrabajoId id, EmpleadoId empleadoId, Instrumento instrumento, PedidoId pedidoId, MateriaPrima materiaPrima, ZonaDeTrabajoId zonaDeTrabajoId, Lavado lavado) {
         super(id);
-        appendChange(new ZonaDeTrabajoAgregada(empleadoId,pedidoId,instrumento, materiaPrima, zonaDeTrabajoId, lavado));
+        appendChange(new ZonaDeTrabajoAgregada(empleadoId, pedidoId, instrumento, materiaPrima, zonaDeTrabajoId, lavado));
         subscribe(new ZonaDeTrabajoEventChange(this));
     }
 
-    public ZonaDeTrabajo(ZonaDeTrabajoId zonaDeTrabajoId){
+    public ZonaDeTrabajo(ZonaDeTrabajoId zonaDeTrabajoId) {
         super(zonaDeTrabajoId);
         subscribe(new ZonaDeTrabajoEventChange(this));
     }
 
 
-
-    public static ZonaDeTrabajo from(ZonaDeTrabajoId zonaDeTrabajoId, List<DomainEvent> events){
+    public static ZonaDeTrabajo from(ZonaDeTrabajoId zonaDeTrabajoId, List<DomainEvent> events) {
         var zonaDeTrabajo = new ZonaDeTrabajo(zonaDeTrabajoId);
         events.forEach(zonaDeTrabajo::applyEvent);
         return zonaDeTrabajo;
     }
 
-    public void agregarInstrumento(ZonaDeTrabajoId zonaDeTrabajoId , InstrumentoId instrumentoId, Nombre nombre, Categoria categoria){
-        appendChange(new InstrumentoAgregado(zonaDeTrabajoId, instrumentoId, nombre,categoria)).apply();
+    public void agregarInstrumento(ZonaDeTrabajoId zonaDeTrabajoId, InstrumentoId instrumentoId, Nombre nombre, Categoria categoria) {
+        appendChange(new InstrumentoAgregado(zonaDeTrabajoId, instrumentoId, nombre, categoria)).apply();
     }
 
-    public void eliminarInstrumento(ZonaDeTrabajoId zonaDeTrabajoId, InstrumentoId instrumentoId){
-        appendChange(new InstrumentoEliminado(zonaDeTrabajoId,instrumentoId)).apply();
+    public void eliminarInstrumento(ZonaDeTrabajoId zonaDeTrabajoId, InstrumentoId instrumentoId) {
+        appendChange(new InstrumentoEliminado(zonaDeTrabajoId, instrumentoId)).apply();
     }
 
-    public void eliminarEmpleado(ZonaDeTrabajoId zonaDeTrabajoId, EmpleadoId empleadoId){
-        appendChange(new EmpleadoEliminado(zonaDeTrabajoId,empleadoId)).apply();
+    public void eliminarEmpleado(ZonaDeTrabajoId zonaDeTrabajoId, EmpleadoId empleadoId) {
+        appendChange(new EmpleadoEliminado(zonaDeTrabajoId, empleadoId)).apply();
     }
 
-    public void actualizarZonaDeTrabajo(ZonaDeTrabajoId zonaDeTrabajoId){
+    public void actualizarZonaDeTrabajo(ZonaDeTrabajoId zonaDeTrabajoId) {
         appendChange(new ZonaDeTrabajoActualizada(zonaDeTrabajoId)).apply();
     }
 }

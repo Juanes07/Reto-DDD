@@ -1,16 +1,32 @@
 package co.com.cafeteria.procesos.zonadetrabajo.value;
 
-import co.com.cafeteria.procesos.pedido.values.Fecha;
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class FechaDeProduccion implements ValueObject<FechaDeProduccion.Pros> {
+/**
+ * Objeto de valor FechaDeProduccion
+ *
+ * @author Juan Esteban Velasquez
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 
+public class FechaDeProduccion implements ValueObject<FechaDeProduccion.Pros> {
+    /**
+     * caracteristicas
+     */
     private final LocalDateTime hora;
     private final LocalDate dia;
+
+    /**
+     * constructor FechaDeProduccion
+     *
+     * @param hora
+     * @param dia
+     */
 
 
     public FechaDeProduccion(LocalDateTime hora, LocalDate dia) {

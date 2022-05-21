@@ -7,6 +7,7 @@ public class InstrumentoId extends Identity {
     public InstrumentoId(String id) {
         super(id);
     }
+
     public static InstrumentoId of(String id) {
         return new InstrumentoId(id);
     }

@@ -5,7 +5,7 @@ import co.com.sofka.domain.generic.Command;
 
 public class EliminarMateriaPrima extends Command {
 
-    private  final MateriaPrimaId materiaPrimaId;
+    private final MateriaPrimaId materiaPrimaId;
 
     public EliminarMateriaPrima(MateriaPrimaId materiaPrimaId) {
         this.materiaPrimaId = materiaPrimaId;

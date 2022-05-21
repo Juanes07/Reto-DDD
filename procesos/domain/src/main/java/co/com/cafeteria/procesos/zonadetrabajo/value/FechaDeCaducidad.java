@@ -17,7 +17,6 @@ public class FechaDeCaducidad implements ValueObject<FechaDeCaducidad.Pros> {
     }
 
 
-
     @Override
     public FechaDeCaducidad.Pros value() {
         return new FechaDeCaducidad.Pros() {

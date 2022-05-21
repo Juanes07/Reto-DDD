@@ -47,7 +47,6 @@ class ActualizarPedidoUseCaseTest {
                 .getDomainEvents();
 
         var pedidoFinalizado = (PedidoActualizado)events.get(0);
-//        Assertions.assertEquals("p1",pedidoFinalizado.aggregateRootId());
         Assertions.assertEquals("p1",pedidoFinalizado.getPedidoId().value());
     }
 
