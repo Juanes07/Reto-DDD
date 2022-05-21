@@ -4,11 +4,9 @@ import co.com.cafeteria.procesos.pedido.entity.Cliente;
 import co.com.cafeteria.procesos.pedido.entity.Local;
 import co.com.cafeteria.procesos.pedido.entity.Producto;
 import co.com.cafeteria.procesos.pedido.events.PedidoCreado;
+import co.com.cafeteria.procesos.pedido.events.PedidoActualizado;
 import co.com.cafeteria.procesos.pedido.values.*;
-import co.com.cafeteria.procesos.zonadetrabajo.ZonaDeTrabajo;
-import co.com.cafeteria.procesos.zonadetrabajo.ZonaDeTrabajoEventChange;
 import co.com.cafeteria.procesos.zonadetrabajo.events.PedidoEliminado;
-import co.com.cafeteria.procesos.zonadetrabajo.value.ZonaDeTrabajoId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
@@ -44,7 +42,11 @@ public class Pedido extends AggregateEvent<PedidoId> {
     }
 
     public void eliminarPedido(PedidoId pedidoId){
-        appendChange(new PedidoEliminado(pedidoId));
+        appendChange(new PedidoEliminado(pedidoId)).apply();
+    }
+
+    public void actualizarPedido(PedidoId pedidoId){
+        appendChange(new PedidoActualizado(pedidoId)).apply();
     }
 
 }

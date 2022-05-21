@@ -13,9 +13,4 @@ public class Instrumento extends Entity<InstrumentoId> {
         this.categoria = categoria;
 
     }
-
-    public void asignarCategoria(String categoria){
-        this.categoria = new Categoria(categoria);
-    }
-
 }
